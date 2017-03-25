@@ -1,0 +1,12 @@
+{
+	"name": "rectangle",
+	"version": "1.0.0",
+	"description": "A simple rectangle calculation to exercise Node Modules",
+	"main": "./index.js",
+	"files": ["./index.js"],
+	"author": {
+		"name": "Amadeu Barbosa Jr",
+		"email": "amadeu@gmail.com",
+		"url": "http://github.com/amadeubarbosa"
+	}
+}
