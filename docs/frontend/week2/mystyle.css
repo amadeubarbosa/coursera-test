@@ -1,0 +1,21 @@
+.row {
+	margin-bottom: 15px;
+}
+.row > div {
+	border: 1px solid black;
+	background-color: lightgray;
+}
+.row > :hover {
+	background-color: lightyellow;
+}
+
+.content > p {
+	background-color: lightgray;
+	border: 1px solid white;
+	padding: 5px;
+	text-align: center;
+}
+
+.content > p:hover {
+	background-color: lightyellow;
+}

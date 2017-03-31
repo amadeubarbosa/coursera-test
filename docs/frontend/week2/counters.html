@@ -1,0 +1,114 @@
+<html>
+<head>
+	<title>Enjoy Lists, Sublists and CSS counters</title>
+	<style type="text/css">
+		body {
+			font-family: Helvetica;
+			counter-reset: section;
+		}
+		h1 {
+			counter-reset: subsection;
+		}
+		h1::before {
+			counter-increment: section;
+			content: 
+			"Chapter "counter(section)". ";
+		}
+		h2::before {
+			counter-increment: subsection;
+			content: 
+			"Section "counter(section)"."counter(subsection)" ";
+		}
+
+		p::first-letter {
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+		/** just work for first level???
+		li:first-letter {
+			text-transform: uppercase;
+		}
+		**/
+
+		/** stackoverflow trash
+		ol {
+		    counter-reset: listidx;
+		}
+
+		ol > li {
+		    counter-increment: listidx;
+		}
+
+		ol ol {
+			list-style-type: none;
+		}
+
+		ol ol > li:before {
+		    content: counters(listidx, ".") " ";
+		}
+		**/
+
+		ol {
+			counter-reset: listidx;
+			list-style-type: none;
+			list-style-position: outside;
+		}
+		li::before {
+			counter-increment: listidx;
+		    content: counters(listidx, ".") "- ";
+		}
+
+		/** is not working well.. 
+		li:hover:nth-child(odd) {
+			background-color: lightyellow;
+		}
+		li:hover:nth-child(even) {
+			background-color: lightgreen;
+		}
+		**/
+	</style>
+</head>
+<body>
+<h1>Lessons about CSS counters</h1>
+<p>Ordinary simplest list possible renders to:<p>
+<ol>
+	<li>item one</li>
+	<li>item two</li>
+	<li>item three</li>
+	<li>item four</li>
+</ol>
+<h2>Rendering a sublist</h2>
+<p>We can render a sublist in a pretty way using only CSS2 counters, like that:<p>
+<ol>
+    <li>one</li>
+    <li>two
+        <ol>
+            <li>two.one</li>
+            <li>two.two</li>
+            <li>two.three</li>
+            <li>two.four</li>
+        </ol>
+    </li>
+    <li>three 
+        <ol>
+            <li>three.one</li>
+            <li>three.two
+                <ol>
+                    <li>three.two.one</li>
+                    <li>three.two.two</li>
+                </ol>
+            </li>
+            <li>three.three
+            	<ol>
+            		<li>three.three.one</li>
+            		<li>three.three.two</li>
+            		<li>three.three.three</li>
+            		<li>three.three.four</li>
+        		</ol>
+    		</li>
+        </ol>
+    </li> 
+    <li>four</li>
+</ol>
+</body>
+</html>

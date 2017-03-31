@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floating Elements</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+div.container {
+  position: relative;
+  background-color: lightgray;
+  padding: 10px;
+}
+p {
+  border: 1px solid black;
+  overflow: scroll;
+  padding: 10px;
+}
+
+/**** large screen *****/
+
+@media(min-width: 640px), (orientation: landscape) {
+  div.container {
+    top: 30px;
+  }
+  p {
+    width: 30%;
+    margin: 1.5%;
+    float: left;
+  }
+  #p2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+#p1 {
+  background-color: #A52A2A;
+}
+#p2 {
+  background-color: #DEB887;
+}
+#p3 {
+  background-color: #5F9EA0;
+}
+#p4 {
+  background-color: #FF7F50;
+}
+
+section {
+  clear: left;
+}
+</style>
+</head>
+<body>
+<h1>Floating Elements</h1>
+
+<div class="container">
+  <p id="p1">Lorem psilium lkajdslaksd laskd lasjd lakjd asldj asldj asldkjasldjasldajsdlasjdlasjdlas d alsdj laskjd lask dlkasj dlkasjd lasjd lasjkd alsdj alskdj asldj aslkdjalsdjalskd jqiewouiqwoie qwe</p>
+  <p id="p2">Now I got some text also! Could be readed at smarthone?!</p>
+  <p id="p3">Lorem psilium lkajdslaksd laskd lasjd lakjd asldj asldj asldkjasldjasldajsdlasjdlasjdlas d alsdj laskjd lask dlkasj dlkasjd lasjd lasjkd alsdj alskdj asldj aslkdjalsdjalskd jqiewouiqwoie qwe</p>
+  <p id="p4">And the end of world, we got it!</p>
+  <section>This is regular content continuing after the the paragraph boxes.</section>
+</div>
+
+
+</body>
+</html>
