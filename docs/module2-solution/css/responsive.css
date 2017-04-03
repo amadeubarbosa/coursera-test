@@ -8,10 +8,8 @@ h1 {
   font-size: 1.75em;
 }
 
-section {
-  font-size: 1.25em;
-}
-section > h1 {
+h2 {
+  text-align: center;
   font-size: 1.25em;
 }
 
@@ -24,15 +22,14 @@ section > h1 {
 div.container > section {
   position: relative;
   float: left;
-  margin-top: 10px;
+  margin-top: 2%;
   margin-left: 2%;
   background-color: lightgray;
   border: 2px solid black;
 }
 
-div.container > section > h1 {
+div.container > section > h2 {
   position: absolute;
-  float: right;
   right: 0;
   top: 0;
   border: 2px solid black;
@@ -64,7 +61,7 @@ div.container > section > p {
   .col-md-6, .col-lg-4 {
     width: 96%;
   }
-  .col-md-6 h1, .col-lg-4 h1 {
+  .col-md-6 h2, .col-lg-4 h2 {
     width: 40%;
   }
 }
@@ -77,10 +74,10 @@ div.container > section > p {
   .col-md-12 {
     width: 96%;
   }
-  .col-md-6 h1 {
+  .col-md-6 h2 {
     width: 40%;
   }
-  .col-md-12 h1 {
+  .col-md-12 h2 {
     width: 35%;
   }
 }
@@ -90,7 +87,7 @@ div.container > section > p {
   .col-lg-4 {
     width: 31%;
   }
-  .col-lg-4 h1 {
+  .col-lg-4 h2 {
     width: 50%;
   }
 }
