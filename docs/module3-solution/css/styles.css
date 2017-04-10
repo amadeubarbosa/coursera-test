@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+.label-primary > a {
+	color: white;
+	text-decoration: none;
+}
+
+section {
+  margin-top: 20px;
+}
+
+section > article {
+  background-color: lightgray;
+  padding: 10px;
+}
+.label {
+  float: right;
+}
+@media (min-width: 768px) {
+	#mynavbar-button > ul {
+		display: none;
+	}
+}
