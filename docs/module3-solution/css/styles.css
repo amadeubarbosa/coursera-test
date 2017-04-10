@@ -3,7 +3,7 @@
   font-family: Helvetica;
 }
 
-.label-primary > a {
+section .label-primary > a {
 	color: white;
 	text-decoration: none;
 }
@@ -16,11 +16,9 @@ section > article {
   background-color: lightgray;
   padding: 10px;
 }
-.label {
+section .label {
   float: right;
 }
-@media (min-width: 768px) {
-	#mynavbar-button > ul {
-		display: none;
-	}
+.navbar-default .navbar-nav > li > a:hover {
+	background-color: lightgray;
 }
