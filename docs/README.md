@@ -6,7 +6,10 @@
 * [examples/bootstrap/week3](examples/bootstrap/week3)
 
 ## Frontend - AngularJS
-* [examples/angular/week2](examples/angular/week2)
+* [examples/angular/week2 = filters](examples/angular/week2/filters)
+* [examples/angular/week2 = digest](examples/angular/week2/digest)
+* [examples/angular/week2 = repeat](examples/angular/week2/repeat)
+* [examples/angular/week2 = service](examples/angular/week2/service)
 
 ## Backend - NodeJS, Express, MongoDB
 
