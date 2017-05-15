@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListApp'>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script src="app2.js"></script>
+    <title>Custom Service</title>
+  </head>
+  <body class='container'><!-- bootstrap container -->
+    <div class='row'>
+        <h1>Custom Service</h1>
+    <div class='col-md-6 col-lg-6 col-xs-12 well well-lg'>
+      <div ng-controller='UnlimitedController as ctrl'>
+      <h3>Unlimited Shopping List</h3>
+        <input type="text" ng-model="ctrl.itemName" placeholder="item name">
+        <input type="text" ng-model="ctrl.itemQuantity" placeholder="quantity">
+        <button class="btn btn-default btn-success btn-sm" ng-click="ctrl.addItem(ctrl.itemName, ctrl.itemQuantity);">
+        <span class="glyphicon glyphicon-plus-sign"></span>
+        <span class="sr-only">Add Item To Shopping List</span>
+        </button>
+
+        <ol class="list-group">
+          <li class="list-group-item" ng-repeat="item in ctrl.items">
+          {{ item.quantity }} of {{ item.name }}
+          <button class="close danger" ng-click='ctrl.remove($index)'>
+          <span class="glyphicon glyphicon-remove-circle"></span>
+          <span class="sr-only">Remove Item</span>
+          </button>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class='col-md-6 col-lg-6 col-xs-12 well well-lg'>
+      <div ng-controller='LimitedController as ctrl'>
+      <h3>Restricted Shopping List</h3>
+        <input type="text" ng-model="ctrl.itemName" placeholder="item name">
+        <input type="text" ng-model="ctrl.itemQuantity" placeholder="quantity">
+        <button class="btn btn-default btn-success btn-sm" ng-click="ctrl.addItem(ctrl.itemName, ctrl.itemQuantity);">
+        <span class="glyphicon glyphicon-plus-sign"></span>
+        <span class="sr-only">Add Item To Shopping List</span>
+        </button>
+
+        <ol class="list-group">
+          <li class="list-group-item" ng-repeat="item in ctrl.items">
+          {{ item.quantity }} of {{ item.name }}
+          <button class="close danger" ng-click='ctrl.remove($index)'>
+          <span class="glyphicon glyphicon-remove-circle"></span>
+          <span class="sr-only">Remove Item</span>
+          </button>
+          </li>
+        </ol>
+        <div ng-hide="!ctrl.errorMessage" role="alert" class="alert alert-danger">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        <span class="sr-only">Error:</span>{{ctrl.errorMessage}}</div>
+      </div>
+    </div>
+    </div><!-- row -->
+  </body><!-- container -->
+</html>

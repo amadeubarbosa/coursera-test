@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListApp'>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Custom Service</title>
+  </head>
+  <body class='container'><!-- bootstrap container -->
+    <h1>Custom Service</h1>
+
+    <div class='well well-lg'>
+      <div ng-controller='ShoppingListAddController as itemAdder'>
+        <input type="text" ng-model="itemAdder.itemName" placeholder="item name">
+        <input type="text" ng-model="itemAdder.itemQuantity" placeholder="quantity">
+        <button class="btn btn-default btn-success btn-sm" ng-click="itemAdder.addItem();">
+        <span class="glyphicon glyphicon-plus-sign"></span>
+        <span class="sr-only">Add Item To Shopping List</span>
+        </button>
+      </div>
+
+      <div ng-controller='ShoppingListShowController as showList'>
+      <h3>Shopping List</h3>
+        <ol class="list-group">
+          <li class="list-group-item" ng-repeat="item in showList.items">
+          {{ item.quantity }} of {{ item.name }}
+          <button class="close danger" ng-click='showList.remove($index)'>
+          <span class="glyphicon glyphicon-remove-circle"></span>
+          <span class="sr-only">Remove Item</span>
+          </button>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>

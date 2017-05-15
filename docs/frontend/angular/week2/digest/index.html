@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app='CounterApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style> body { font-size: 1.2em; }</style>
+    <title>ng-repeat</title>
+  </head>
+  <body>
+    <h1>The Digest Cycle</h1>
+    <div ng-controller='CounterController'>
+      <button ng-click="showNumberOfWatchers()">
+        Log # of Watchers</button>
+      <button ng-click="increment()">
+        Increment</button>
+      <div>
+      <!-- 1-way binding -->
+      Current value: {{ counter }}
+      </div>
+      <div>
+        <!-- 2-way binding on name property -->
+        <input type="text" ng-model="name">
+        <button ng-click="setname()">
+        Set name</button>
+        <div>
+        <!-- 1-time binding on fullname property-->
+        Full name<sup>(1-time binding)</sup>: {{::fullname}}
+        </div>
+      </div>
+    </div>
+    <div>
+  </body>
+</html>
