@@ -37,7 +37,10 @@
       <button class="btn btn-primary" ng-click="narrowit.getMatchedMenuItems(search)">Narrow It Down For Me!</button>
     </div>
 
-    <found-items></found-items>
+    <found-items 
+      items="narrowit.found" 
+      title="{{narrowit.title}}"
+      on-remove="narrowit.removeItem(idx)"></found-items>
   </div>
 
 </body>

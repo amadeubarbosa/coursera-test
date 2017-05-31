@@ -10,10 +10,21 @@ angular.module('NarrowItDownApp', [])
 function FoundItems() {
   var ddo = {
     templateUrl: 'items-template.html',
+    scope: {
+      items: '<',
+      title: '@',
+      remove: '&onRemove',
+    },
+    controller: FoundItemsController,
+    controllerAs: 'list',
+    bindToController: true,
   };
 
   return ddo;
 }
+
+FoundItemsController.$inject = []
+function FoundItemsController() {}
 
 NarrowItDownAppController.$inject = ['MenuSearchService']
 function NarrowItDownAppController(service) {
@@ -21,18 +32,24 @@ function NarrowItDownAppController(service) {
 
 	// data binding
 	self.found = []
+  self.title = ""
 	// operations
-  self.remove = function(idx) {
+  self.removeItem = function(idx) {
     self.found.splice(idx,1)
+    if (self.found.length == 0) {
+      self.title = "List is empty again, try a new search!"
+    } else {
+      self.title = "Pick " + self.found.length + " items"
+    }
   }
 	self.getMatchedMenuItems = function(searchTerm) {
-    if (searchTerm.trim() === "") {
+    if ((searchTerm === undefined) || (searchTerm.trim() === "")) {
       self.title = "Nothing found"
       self.found = []
     } else {
       service.getMatchedMenuItems(searchTerm).then(
         function(result) {
-          self.title = "We found something!"
+          self.title = "Pick " + result.length + " items"
           self.found = result
         },
         function(error) {
@@ -55,19 +72,19 @@ function MenuSearchService ($http, ITEMS_URL){
       url: ITEMS_URL
     }).then(function (result) {
       var menu_items = result.data.menu_items
-      var found = []
+      var filtered = []
       // process result and only keep items that match
       for (var i=0; i < menu_items.length; i++) {
         var item = menu_items[i]
         var itemName = item.description.toLowerCase()
         if (itemName.search(searchTerm) !== -1) {
-          found.push(item);
+          filtered.push(item);
         }
       }
-      if (found.length == 0) {
+      if (filtered.length == 0) {
         throw new Error("No results for '" + searchTerm + "'!")
       }
-      return found;
+      return filtered;
     });
   };
 }
