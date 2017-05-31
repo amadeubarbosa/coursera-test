@@ -1,9 +1,20 @@
 <div class="col-xs-12">
+<div ng-show="list.loading" class="loader"></div>
+<span ng-show="list.loading">Loading...</span>
+
 <h4>{{list.title}}</h4>
-<ul>
-  <li ng-repeat="item in list.items">
-    [{{ item.short_name }}] {{ item.name }} : {{ item.description }}
-    <button ng-click="list.remove({idx: $index});">Don't want this one!</button>
-  </li>
-</ul>
+<table ng-show="list.items.length > 0" class="table table-condensed table-striped">
+<tr>
+	<th>Short</th>
+	<th>Name</th>
+	<th>Description</th>
+	<th>Action</th>
+</tr>
+<tr ng-repeat="item in list.items">
+  <td>{{item.short_name}}</td>
+  <td>{{item.name}}</td>
+  <td>{{item.description}}</td>
+  <td><button class="btn btn-danger" ng-click="list.remove({idx: $index});">Don't want this one!</button></td>
+</tr>
+</table>
 </div>

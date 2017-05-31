@@ -12,6 +12,7 @@ function FoundItems() {
     templateUrl: 'items-template.html',
     scope: {
       items: '<',
+      loading: '=?',
       title: '@',
       remove: '&onRemove',
     },
@@ -33,6 +34,7 @@ function NarrowItDownAppController(service) {
 	// data binding
 	self.found = []
   self.title = ""
+  self.loading = false
 	// operations
   self.removeItem = function(idx) {
     self.found.splice(idx,1)
@@ -43,19 +45,24 @@ function NarrowItDownAppController(service) {
     }
   }
 	self.getMatchedMenuItems = function(searchTerm) {
+    self.found = []
+    self.title = ""
+    self.loading = true
     if ((searchTerm === undefined) || (searchTerm.trim() === "")) {
+      self.loading = false
       self.title = "Nothing found"
-      self.found = []
     } else {
       service.getMatchedMenuItems(searchTerm).then(
         function(result) {
+          self.loading = false
           self.title = "Pick " + result.length + " items"
           self.found = result
         },
         function(error) {
+          self.loading = false
           self.title = "Nothing found"
-          console.log(error)
           self.found = []
+          console.log(error)
         })
     }
   }
