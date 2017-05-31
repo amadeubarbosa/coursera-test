@@ -1,0 +1,10 @@
+<div class="col-xs-12">
+<h4>{{narrowit.title}}</h4>
+<ul>
+  <li ng-repeat="item in narrowit.found">
+    [{{ item.short_name }}] {{ item.name }} : {{ item.description }}
+    <button ng-click="narrowit.remove($index);">Don't want this one!</button>
+  </li>
+  <!-- <div ng-if="narrowit.found.length == 0" class="emptyMessage">Nothing found</div> -->
+</ul>
+</div>
