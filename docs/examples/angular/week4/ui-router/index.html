@@ -2,6 +2,7 @@
 <html ng-app='ShoppingList'>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <title>No Cookie Shopping List</title>
   </head>
@@ -10,12 +11,15 @@
 
     <ui-view></ui-view>
 
+    <loading></loading>
+
     <!-- Libraries -->
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-ui-router.min.js"></script>
 
     <!-- Modules -->
     <script src="src/shoppinglist/shoppinglist.module.js"></script>
+    <script src="src/loading/loading.module.js"></script>
 
     <!-- Routes -->
     <script src="src/routes.js"></script>
@@ -23,8 +27,11 @@
     <!-- 'ShoppingList' module artifacts -->
     <script src="src/shoppinglist/shoppinglist.component.js"></script>
     <script src="src/shoppinglist/main-shoppinglist.controller.js"></script>
-    <script src="src/shoppinglist/item-detail.controller.js"></script>
     <script src="src/shoppinglist/shoppinglist.service.js"></script>
+    <script src="src/shoppinglist/item-detail.controller.js"></script>
+    
+    <!-- 'Loading' module artifacts -->
+    <script src="src/loading/loading.component.js"></script>
 
   </body>
 </html>

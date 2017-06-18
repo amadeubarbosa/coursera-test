@@ -26,15 +26,15 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       }]
     }
   })
-  .state('mainList.itemDetail',{
+  .state('mainList.itemDetail', {
+    url: '/item-detail/{itemId}', // explicit url-parameters
+    templateUrl: 'src/shoppinglist/templates/item-detail.template.html',
+    controller: "ItemDetailController as itemDetail",
     //hidden parameters:
     // params: {
     //   itemId: null
     // },
-    url: '/item-detail/{itemId}', // explicit url-parameters
-    templateUrl: 'src/shoppinglist/templates/item-detail.template.html',
-    controller: 'ItemDetailController as itemDetail',
-    //if no nested view (state: 'itemDetail')
+    //if no nested view (state: 'itemDetail'):
     // resolve: {
     //   item: ['$stateParams', 'ShoppingListService', 
     //     function($stateParams, ShoppingListService) {
