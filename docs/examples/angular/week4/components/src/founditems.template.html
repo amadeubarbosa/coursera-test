@@ -1,0 +1,19 @@
+<div class="col-xs-12">
+<loading></loading>
+
+<h4>{{$ctrl.title}}</h4>
+<table ng-show="$ctrl.items.length > 0" class="table table-condensed table-striped">
+<tr>
+	<th>Short</th>
+	<th>Name</th>
+	<th>Description</th>
+	<th>Action</th>
+</tr>
+<tr ng-repeat="item in $ctrl.items">
+  <td>{{item.short_name}}</td>
+  <td>{{item.name}}</td>
+  <td>{{item.description}}</td>
+  <td><button class="btn btn-danger" ng-click="$ctrl.remove($index);">Don't want this one!</button></td>
+</tr>
+</table>
+</div>

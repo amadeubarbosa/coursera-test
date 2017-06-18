@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDown">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <!-- modules -->
+    <script src="src/narrowdown.module.js"></script>
+    <script src="src/founditems.module.js"></script>
+    <script src="src/menusearch.module.js"></script>
+    <script src="src/loading.module.js"></script>
+    <!-- artifacts -->
+    <script src="src/menusearch.service.js"></script>
+    <script src="src/loading.component.js"></script>
+    <script src="src/founditems.component.js"></script>
+    <script src="src/narrowdown.controller.js"></script>
+  </head>
+<body>
+   <div class="container" ng-controller="NarrowItDownController as narrowit">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+
+    <div class="form-group">
+      <input type="text" placeholder="search term" class="form-control" ng-model="terms">
+    </div>
+    <div class="form-group narrow-button">
+      <button class="btn btn-primary" ng-click="narrowit.search(terms)">Narrow It Down For Me!</button>
+    </div>
+
+    <found-items 
+      items="narrowit.found" 
+      title="narrowit.title"
+      on-remove="narrowit.removeItem(idx)"></found-items>
+  </div>
+
+</body>
+</html>
