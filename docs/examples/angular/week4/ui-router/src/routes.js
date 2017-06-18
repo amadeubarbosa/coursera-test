@@ -12,19 +12,39 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 
   // *** Set up UI states ***
   $stateProvider
-
-  // Home page
-  .state('home', {
+  .state('home', {     // Home page
     url: '/',
     templateUrl: 'src/shoppinglist/templates/home.template.html'
   })
-
-  // Premade list page
-  .state('mainList', {
+  .state('mainList', { // Premade list page
     url: '/main-list',
     templateUrl: 'src/shoppinglist/templates/main-shoppinglist.template.html',
-    controller: 'MainShoppingListController as mainList'
-  });
+    controller: 'MainShoppingListController as mainList',
+    resolve: {
+      items: ['ShoppingListService', function(ShoppingListService) {
+        return ShoppingListService.getItems();
+      }]
+    }
+  })
+  .state('mainList.itemDetail',{
+    //hidden parameters:
+    // params: {
+    //   itemId: null
+    // },
+    url: '/item-detail/{itemId}', // explicit url-parameters
+    templateUrl: 'src/shoppinglist/templates/item-detail.template.html',
+    controller: 'ItemDetailController as itemDetail',
+    //if no nested view (state: 'itemDetail')
+    // resolve: {
+    //   item: ['$stateParams', 'ShoppingListService', 
+    //     function($stateParams, ShoppingListService) {
+    //       return ShoppingListService.getItems().then(
+    //         function(result){
+    //           return result[$stateParams.itemId]
+    //         })
+    //     }]
+    // }
+  })
 }
 
 })();
