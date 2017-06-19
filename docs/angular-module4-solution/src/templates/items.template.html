@@ -1,0 +1,16 @@
+<div class="col-xs-12">
+
+<h3>{{items.category}}</h3>
+<table ng-show="items.list.length > 0" class="table table-condensed table-striped">
+<tr>
+	<th>Name</th>
+	<th>Description</th>
+	<th>Price</th>
+</tr>
+<tr ng-repeat="dish in items.list">
+  <td>{{dish.name}}</td>
+  <td>{{dish.description}}</td>
+  <td>{{dish.price_large}}</td>
+</tr>
+</table>
+</div>

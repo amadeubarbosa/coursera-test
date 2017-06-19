@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  <h3><a ui-sref='menu'>Categories</a></h3>
+		<ul class="nav navbar-nav">
+		  <li ui-sref-active="active" ng-repeat="category in $ctrl.list">
+		    <a ui-sref="menu.items({shortname: category.short_name})">
+		    {{ category.name }}</a>
+		  </li>
+		</ul>
+  </div>
+</nav>
+
+<ui-view></ui-view>
